@@ -45,9 +45,10 @@ La cartella `dist` contiene l'app compilata, inclusi React e MUI: nessuna CDN ne
 - Modalità sbusto: digita numero, Invio, successivo. Ogni inserimento aggiunge una copia, anche per un numero già trovato. Il focus resta nel campo. «Annulla ultimo» annulla un inserimento della sessione (fino agli ultimi 50).
 - Tocca un numero per aggiungere o rimuovere copie. Filtra per mancanti, trovate e doppioni.
 - Esporta una collezione o un backup completo in JSON. Su un altro dispositivo usa Importa e conferma. Ogni importazione crea copie separate delle collezioni; non sovrascrive o unisce automaticamente dati esistenti.
+- Per organizzare gli scambi, apri una tua collezione e premi «Confronta». Carica l’export JSON dell’amico oppure incolla il suo JSON o codice FIG1. Se ci sono più album, scegli quello da confrontare: deve essere lo stesso album e la stessa edizione, con la stessa numerazione. Le liste «Puoi dare» e «Puoi ricevere» mostrano i doppioni che mancano all’altra persona, conservando una copia per numero. Il riepilogo indica quanti scambi uno a uno sono possibili; le liste restano utili anche quando solo una persona ha figurine da offrire. Il confronto non importa né salva i dati dell’amico e non modifica le quantità: dopo uno scambio aggiornale manualmente.
 - Il QR contiene i dati compressi, non un link: usa un lettore QR che mostri testo, copia il codice FIG1 e incollalo nella finestra Importa del secondo dispositivo. Non è integrata una fotocamera nell'app. Per collezioni troppo grandi viene proposto il JSON.
 - Il browser può cancellare il salvataggio locale, soprattutto in modalità privata o cancellando i dati del sito. Conserva backup JSON. Cambiando protocollo/host/porta si usa un archivio locale diverso.
 
 ## Verifica
 
-Test unitari per conteggio copie, limiti e validazione import, round-trip JSON/QR; controllo TypeScript e build produzione. Browser QA non eseguita in questo ambiente.
+Test unitari per conteggio copie, limiti e validazione import, round-trip JSON/QR e confronto degli scambi; controllo TypeScript e build produzione.

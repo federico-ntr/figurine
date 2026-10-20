@@ -94,3 +94,21 @@ export function add(a: Album, n: number, delta = 1): Album {
   else delete counts[n];
   return { ...a, counts };
 }
+
+/**
+ * Individua i doppioni utili all’altra persona, conservando una copia per numero.
+ * @param mine - La propria collezione.
+ * @param friend - La collezione dell’amico, con la stessa numerazione.
+ * @returns Numeri da dare e ricevere e massimo numero di scambi uno a uno.
+ */
+export function compareAlbums(mine: Album, friend: Album) {
+  if (mine.total !== friend.total)
+    throw Error("Gli album hanno un numero totale di figurine diverso.");
+  const give: number[] = [];
+  const receive: number[] = [];
+  for (let n = 1; n <= mine.total; n++) {
+    if (mine.counts[n] > 1 && !friend.counts[n]) give.push(n);
+    if (friend.counts[n] > 1 && !mine.counts[n]) receive.push(n);
+  }
+  return { give, receive, swaps: Math.min(give.length, receive.length) };
+}

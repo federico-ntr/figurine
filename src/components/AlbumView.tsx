@@ -4,6 +4,7 @@ import { StickerGrid } from "./StickerGrid";
 import { Box, Stack, Typography, Breadcrumbs, Button, IconButton, Tooltip } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import QrCodeIcon from "@mui/icons-material/QrCode2";
+import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import type { Album } from "../data";
 import type { AlbumManager } from "../hooks/useAlbumManager";
 
@@ -85,6 +86,9 @@ export function AlbumView(props: AlbumViewProps) {
             justifyContent: { xs: "flex-start", sm: "flex-end" },
           }}
         >
+          <Button size="small" startIcon={<SwapHorizIcon />} onClick={() => setModal("compare")}>
+            Confronta
+          </Button>
           <Tooltip title="Esporta collezione">
             <IconButton aria-label="Esporta collezione" onClick={() => exportFile()}>
               <DownloadIcon />

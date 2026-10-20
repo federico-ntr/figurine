@@ -9,6 +9,7 @@ import { ImportAlbumDialog } from "./components/ImportAlbumDialog";
 import { ShareAlbumDialog } from "./components/ShareAlbumDialog";
 import { StickerDetailDialog } from "./components/StickerDetailDialog";
 import { AlbumSettingsDialog } from "./components/AlbumSettingsDialog";
+import { CompareAlbumDialog } from "./components/CompareAlbumDialog";
 
 /**
  * Collega la gestione degli album alle sezioni e alle finestre dell’interfaccia.
@@ -55,6 +56,13 @@ export function App() {
       <ShareAlbumDialog {...manager} />
       <StickerDetailDialog {...manager} />
       <AlbumSettingsDialog {...manager} />
+      {manager.modal === "compare" && manager.album && (
+        <CompareAlbumDialog
+          key={manager.album.id}
+          album={manager.album}
+          onClose={() => manager.setModal("")}
+        />
+      )}
     </>
   );
 }
